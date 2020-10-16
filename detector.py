@@ -31,7 +31,7 @@ root.title("Object Detection")
 
 def f(pat,pa):
     # Load Yolo
-    net = cv2.dnn.readNet("yolov3.weights", "yolov3.cfg")           # replace the .cfg with the name of your own .cfg file and the weights with your own weights this is an example of coco dataset
+    net = cv2.dnn.readNet("yolov4.weights", "yolov4.cfg")           # replace the .cfg with the name of your own .cfg file and the weights with your own weights this is an example of coco dataset
     ca=open("classes.txt","r")
     classes=[i.replace("\n","") for i in ca]
 
@@ -100,7 +100,7 @@ def f(pat,pa):
                 color = (0, 0, 255)
                 cv2.rectangle(img, (x, y), (x + w, y + h), color, 1)
                 cv2.putText(img, label + na, (x, y - 10), font, 0.5, color, 2)
-        #cv2.imwrite(os.path.join(pa , os.path.basename(img_path)) ,img)
+        cv2.imwrite(os.path.join(pa , os.path.basename(img_path)) ,img)
         #print(Sdir)
         #img = cv2.merge((r,g,b))
         #im = Image.fromarray(img)
