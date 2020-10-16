@@ -4,7 +4,7 @@
 ```python
 net = cv2.dnn.readNet("yolov3.weights", "yolov3.cfg")
 ```
-### Change the name of weights and .cfg file in detector.py
+### Change the name of weights and .cfg file in detector.py with the name of file you are using
 
 ### Use the wieghts and .cfg file that are saved in your google drive after training yolov3 detector
 
