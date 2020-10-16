@@ -35,3 +35,10 @@ cv2.imwrite(os.path.join(pa , os.path.basename(img_path)) ,img)
 ![Example 4](examples/P00959.jpg)<!-- -->
 
 # Detection on coco dataset
+![Example 1](examples/000000002923.jpg)<!-- -->
+![Example 2](examples/000000026690.jpg)<!-- -->
+![Example 3](examples/000000051738.jpg)<!-- -->
+![Example 4](examples/000000054164.jpg)<!-- -->
+![Example 5](examples/000000118209.jpg)<!-- -->
+
+
