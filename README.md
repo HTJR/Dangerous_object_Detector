@@ -6,6 +6,8 @@ net = cv2.dnn.readNet("yolov3.weights", "yolov3.cfg")
 ```
 ### Change the name of weights and .cfg file in detector.py with the name of file you are using
 
+### Currently classes.txt contains name of 80 classes in [COCO](https://cocodataset.org/#home) dataset you can change the name to classes of your own choice if you train it on custom dataset
+
 ### Use the wieghts and .cfg file that are saved in your google drive after training yolov3 detector
 
 ### You can download [Yolov4.weights](https://drive.google.com/file/d/1nbCEW-gG08zakvGkTdL319_RUqTiNFLQ/view?usp=sharing) [Yolov4.cfg](https://drive.google.com/file/d/1ZHokj9JKVBh9kQy98rwFj2lIZDEhjeiO/view?usp=sharing)  that are trained on [COCO](https://cocodataset.org/#home) dataset<br/>
