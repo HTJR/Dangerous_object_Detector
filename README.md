@@ -17,3 +17,5 @@ net = cv2.dnn.readNet("yolov3.weights", "yolov3.cfg")
 ![Example 2](examples/P00017.jpg)<!-- -->
 ![Example 3](examples/P00946.jpg)<!-- -->
 ![Example 4](examples/P00959.jpg)<!-- -->
+
+# Detection on coco dataset
