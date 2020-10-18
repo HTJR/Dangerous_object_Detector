@@ -28,6 +28,7 @@ cv2.imwrite(os.path.join(pa , os.path.basename(img_path)) ,img)
 ####  --weights WEIGHTS  Path to weights: default is yolo4.weights
 ####  --CUDA CUDA        True or False to use Cuda for OpenCv default is False:
 ####  --video VIDEO      Leave it empty to use webcam or give path to video:  #only for detector-video.py
+####  --save SAVE        True or False to save the detected images in folder that you will choose in tkwindow-default is False: # only for detector.py
 ### Set CUDA to False if you are using OpenCv from pip
 ```python
 >python detector-video.py --CFG ./yolov3-608.cfg --weights ./yolov3-608.weights  --video "path to video" --CUDA True
