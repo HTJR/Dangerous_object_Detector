@@ -8,7 +8,7 @@ net = cv2.dnn.readNet("yolov3.weights", "yolov3.cfg")
 ### If you have a installed Opencv via pip Change the cuda = False in both detector.py an detector-video.py
 
 ```python
-cuda=True
+cuda=False
 ````
 
 ### Change the name of weights and .cfg file in detector.py with the name of file you are using
