@@ -19,6 +19,9 @@ parser.add_argument("--weights", default="yolov4.weights",
                                       )
 parser.add_argument("--CUDA", default=False,
                                  help='True or False to use Cuda for OpenCv default is False: '
+                                      )
+parser.add_argument("--save", default=False,
+                                 help='True or False to save the detected images in folder that you will choose in tkwindow-default is False: '
                                       )                                      
 args = parser.parse_args()
 
@@ -119,7 +122,8 @@ def f(pat,pa):
                 color = (0, 0, 255)
                 cv2.rectangle(img, (x, y), (x + w, y + h), color, 1)
                 cv2.putText(img, label + na, (x, y - 10), font, 0.5, color, 2)
-        cv2.imwrite(os.path.join(pa , os.path.basename(img_path)) ,img)
+        if args.save:
+            cv2.imwrite(os.path.join(pa , os.path.basename(img_path)) ,img)
         #print(Sdir)
         #img = cv2.merge((r,g,b))
         #im = Image.fromarray(img)
