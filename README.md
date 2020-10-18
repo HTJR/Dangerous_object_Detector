@@ -1,12 +1,6 @@
 # Yolov3 custom object detector 
 ### Use the YOLOv3_Tutorial.ipynb note book in google colab to train your own object detector
 
-```python
-net = cv2.dnn.readNet("yolov3.weights", "yolov3.cfg")
-```
-
-### Change the name of weights and .cfg file in detector.py with the name of file you are using
-
 ### Currently classes.txt contains name of 80 classes in [COCO](https://cocodataset.org/#home) dataset you can change the name to classes of your own choice if you train it on custom dataset
 
 ### Use the wieghts and .cfg file that are saved in your google drive after training yolov3 detector
@@ -36,7 +30,7 @@ cv2.imwrite(os.path.join(pa , os.path.basename(img_path)) ,img)
 ####  --video VIDEO      Leave it empty to use webcam or give path to video:  #only for detector-video.py
 ### Set CUDA to False if you are using OpenCv from pip
 ```python
->python detector-video.py --CFG ./yolov3-608.cfg --weights ./yolov3-608.weights --CUDA True
+>python detector-video.py --CFG ./yolov3-608.cfg --weights ./yolov3-608.weights  --video "path to video" --CUDA True
 ```
 # Dangerous_object_Detector
 ![Example 1](examples/main.jpg)<!-- -->
