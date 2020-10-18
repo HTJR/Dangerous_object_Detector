@@ -31,7 +31,11 @@ root.title("Object Detection")
 
 def f(pat,pa):
     # Load Yolo
-    net = cv2.dnn.readNet("yolov4.weights", "yolov4.cfg")           # replace the .cfg with the name of your own .cfg file and the weights with your own weights this is an example of coco dataset
+    cuda=True
+    net = cv2.dnn.readNetFromDarknet("yolov4.cfg","yolov4.weights")
+    if cuda:   # replace the .cfg with the name of your own .cfg file and the weights with your own weights this is an example of coco dataset
+        net.setPreferableBackend(cv2.dnn.DNN_BACKEND_CUDA)        
+        net.setPreferableTarget(cv2.dnn.DNN_TARGET_CUDA)      
     ca=open("classes.txt","r")
     classes=[i.replace("\n","") for i in ca]
 
