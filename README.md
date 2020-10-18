@@ -33,6 +33,7 @@ cv2.imwrite(os.path.join(pa , os.path.basename(img_path)) ,img)
 ####  --CFG CFG          Path to .Cfg: default is yolov4.cfg
 ####  --weights WEIGHTS  Path to weights: default is yolo4.weights
 ####  --CUDA CUDA        True or False to use Cuda for OpenCv default is False:
+####  --video VIDEO      Leave it empty to use webcam or give path to video:  #only for detector-video.py
 ### Set CUDA to False if you are using OpenCv from pip
 ```python
 >python detector-video.py --CFG ./yolov3-608.cfg --weights ./yolov3-608.weights --CUDA True
