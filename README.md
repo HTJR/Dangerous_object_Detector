@@ -4,6 +4,13 @@
 ```python
 net = cv2.dnn.readNet("yolov3.weights", "yolov3.cfg")
 ```
+
+### If you have a installed Opencv via pip Change the cuda = False in both detector.py an detector-video.py
+
+```python
+cuda=True
+````
+
 ### Change the name of weights and .cfg file in detector.py with the name of file you are using
 
 ### Currently classes.txt contains name of 80 classes in [COCO](https://cocodataset.org/#home) dataset you can change the name to classes of your own choice if you train it on custom dataset
