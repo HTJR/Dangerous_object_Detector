@@ -28,14 +28,15 @@ net = cv2.dnn.readNet("yolov3.weights", "yolov3.cfg")
 ```python
 cv2.imwrite(os.path.join(pa , os.path.basename(img_path)) ,img)
 ```
-
 ### Running the Detector use Command line argument to give path to model weights and cfg file
- -h, --help         show this help message and exit
-  --CFG CFG          Path to .Cfg: default is yolov4.cfg
-  --weights WEIGHTS  Path to weights: default is yolo4.weights
-  --CUDA CUDA        True or False to use Cuda for OpenCv default is False:
+#### -h, --help         show this help message and exit
+####  --CFG CFG          Path to .Cfg: default is yolov4.cfg
+####  --weights WEIGHTS  Path to weights: default is yolo4.weights
+####  --CUDA CUDA        True or False to use Cuda for OpenCv default is False:
 ### Set CUDA to False if you are using OpenCv from pip
-
+```python
+>python detector-video.py --CFG ./yolov3-608.cfg --weights ./yolov3-608.weights --CUDA True
+```
 # Dangerous_object_Detector
 ![Example 1](examples/main.jpg)<!-- -->
 ![Example 2](examples/P00017.jpg)<!-- -->
