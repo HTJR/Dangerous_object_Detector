@@ -5,12 +5,6 @@
 net = cv2.dnn.readNet("yolov3.weights", "yolov3.cfg")
 ```
 
-### If you have a installed OpenCv via pip Change the cuda = False in both detector.py an detector-video.py
-
-```python
-cuda=False
-````
-
 ### Change the name of weights and .cfg file in detector.py with the name of file you are using
 
 ### Currently classes.txt contains name of 80 classes in [COCO](https://cocodataset.org/#home) dataset you can change the name to classes of your own choice if you train it on custom dataset
@@ -34,6 +28,13 @@ cuda=False
 ```python
 cv2.imwrite(os.path.join(pa , os.path.basename(img_path)) ,img)
 ```
+
+### Running the Detector use Command line argument to give path to model weights and cfg file
+ -h, --help         show this help message and exit
+  --CFG CFG          Path to .Cfg: default is yolov4.cfg
+  --weights WEIGHTS  Path to weights: default is yolo4.weights
+  --CUDA CUDA        True or False to use Cuda for OpenCv default is False:
+### Set CUDA to False if you are using OpenCv from pip
 
 # Dangerous_object_Detector
 ![Example 1](examples/main.jpg)<!-- -->
