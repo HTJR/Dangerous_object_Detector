@@ -8,6 +8,21 @@ import glob
 import random
 from PIL import Image, ImageTk
 import os
+import argparse
+parser = argparse.ArgumentParser(
+    description='Script to run Yolo object detection network ')
+parser.add_argument("--CFG", default="yolov4.cfg",
+                                  help='Path to .Cfg: '
+                                       )
+parser.add_argument("--weights", default="yolov4.weights",
+                                 help='Path to weights: '
+                                      )
+parser.add_argument("--CUDA", default=False,
+                                 help='True or False to use Cuda for OpenCv default is False: '
+                                      )                                      
+args = parser.parse_args()
+
+
 dir = ""
 Sdir = ""
 def open_folder():
@@ -31,8 +46,8 @@ root.title("Object Detection")
 
 def f(pat,pa):
     # Load Yolo
-    cuda=True
-    net = cv2.dnn.readNetFromDarknet("yolov4.cfg","yolov4.weights")
+    cuda=args.CUDA
+    net = cv2.dnn.readNetFromDarknet(args.CFG,args.weights)
     if cuda:   # replace the .cfg with the name of your own .cfg file and the weights with your own weights this is an example of coco dataset
         net.setPreferableBackend(cv2.dnn.DNN_BACKEND_CUDA)        
         net.setPreferableTarget(cv2.dnn.DNN_TARGET_CUDA)      

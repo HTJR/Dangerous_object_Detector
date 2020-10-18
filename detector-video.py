@@ -11,8 +11,22 @@ import os
 import imutils
 from imutils.video import FPS
 import time
-
-
+import argparse
+parser = argparse.ArgumentParser(
+    description='Script to run Yolo object detection network ')
+parser.add_argument("--CFG", default="yolov4.cfg",
+                                  help='Path to .Cfg: '
+                                       )
+parser.add_argument("--weights", default="yolov4.weights",
+                                 help='Path to weights: '
+                                      )
+parser.add_argument("--CUDA", default=False,
+                                 help='True or False to use Cuda for OpenCv default is False: '
+                                      )
+parser.add_argument("--video", default=False,
+                                 help='Leave it empty to use webcam or give path to video: '
+                                      )                                      
+args = parser.parse_args()
 
 dir = ""
 Sdir = ""
@@ -37,8 +51,8 @@ root.title("Object Detection")
 
 def f():
     # Load Yolo
-    cuda=True
-    net = cv2.dnn.readNetFromDarknet("yolov3_custom.cfg","yolov3_custom.weights")
+    cuda=args.CUDA
+    net = cv2.dnn.readNetFromDarknet(args.CFG,args.weights)
     if cuda:   # replace the .cfg with the name of your own .cfg file and the weights with your own weights this is an example of coco dataset
         net.setPreferableBackend(cv2.dnn.DNN_BACKEND_CUDA)        
         net.setPreferableTarget(cv2.dnn.DNN_TARGET_CUDA)
@@ -57,7 +71,10 @@ def f():
     # Insert here the path of your images
     #random.shuffle(images_path)
     # loop through all the images
-    cap = cv2.VideoCapture(0)
+    if args.video:
+        cap = cv2.VideoCapture(args.video)
+    else:
+        cap = cv2.VideoCapture(0)
     
     # used to record the time when we processed last frame 
     prev_frame_time = 0
@@ -87,8 +104,8 @@ def f():
                 confidence = scores[class_id]
                 if confidence > 0.3:
                     # Object detected
-                    print(class_id)
-                    print(confidence)
+                    #print(class_id)
+                    #print(confidence)
                     #f.write(os.path.basename(img_path)+":"+"\t\tconfidence:"+str(confidence)+"\t\tclass:"+str(class_id)+"\n\n")
                     acc[0]=acc[0]+confidence
                     #print(acc[0])
@@ -106,7 +123,7 @@ def f():
                     class_ids.append(class_id)
         #f1.write(str(acc[0]))
         indexes = cv2.dnn.NMSBoxes(boxes, confidences, 0.5, 0.4)
-        print(indexes)
+        #print(indexes)
         font = cv2.FONT_HERSHEY_SIMPLEX
         for i in range(len(boxes)):
             if i in indexes:
